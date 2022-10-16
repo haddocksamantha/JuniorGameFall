@@ -59,12 +59,12 @@ public class ScissorsCut : MonoBehaviour
 
   private void PlayAnim2()
   {
-    Debug.Log("anim2");
+    teddyAnim.Play("Cut02", 0, 0.0f);
   }
 
   private void PlayAnim3()
   {
-    Debug.Log("anim3");
+    teddyAnim.Play("Cut03", 0, 0.0f);
   }
 
 
