@@ -18,7 +18,7 @@ public class SyringeClick : MonoBehaviour
     private void Start()
     {
       tools.syMaxGlow = 0;
-      tools.isNeedleSelected = false;
+      tools.isSyringeSelected = false;
     }
 
  
@@ -87,5 +87,8 @@ public class SyringeClick : MonoBehaviour
     
     tools.areScissorsSelected = false;
     tools.sMaxGlow = 0;
+
+    tools.isBandaidSelected = false;
+    tools.bMaxGlow = 0;
   }
 }

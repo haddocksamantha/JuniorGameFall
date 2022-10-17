@@ -87,6 +87,9 @@ public class NeedleClicked : MonoBehaviour
 
     tools.isSyringeSelected = false;
     tools.syMaxGlow = 0;
+
+    tools.isBandaidSelected = false;
+    tools.bMaxGlow = 0;
   }
 
 }
