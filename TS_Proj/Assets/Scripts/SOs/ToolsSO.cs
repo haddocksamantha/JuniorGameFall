@@ -7,7 +7,13 @@ using UnityEngine.UI;
 
 public class ToolsSO : ScriptableObject
 {
-    public bool areScissorsSelected = false;
-    public bool isNeedleSelected = false;
-  
+    public bool areScissorsSelected;
+    public bool isNeedleSelected;
+    public bool isSyringeSelected;
+    public bool isBandaidSelected;
+
+    public int sMaxGlow;
+    public int nMaxGlow;
+    public int syMaxGlow;
+    public int bMaxGlow;
 }

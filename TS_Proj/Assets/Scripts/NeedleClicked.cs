@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class NeedleClicked : MonoBehaviour
 {
-     [SerializeField] private ToolsSO tools;
-     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private ToolsSO tools;
+    [SerializeField] private LayerMask layerMask;
     
-    public Material needleMat;
+    public GameObject glowObj;
 
-    private void Awake()
+    private GameObject glowClone;
+
+    private int numOfClicks;
+
+    //private float pinkIntensity = 5f;
+
+    private void Start()
     {
-        tools.isNeedleSelected = false;
+      tools.nMaxGlow = 0;
+      tools.isNeedleSelected = false;
     }
 
-   
  
     private void PrintName (GameObject needleObj)
     {
@@ -23,42 +29,38 @@ public class NeedleClicked : MonoBehaviour
 
     private void Update()
     {
-        CheckForClick();
+      CheckForClick();
     }
   
     private void CheckForClick()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-         RayClick();
-        }
+      if(Input.GetMouseButtonDown(0))
+      {
+        NeedleActive();
+        RayClick();
+      }
     }
 
   private void NeedleActive()
   {
-    tools.isNeedleSelected = true;
-
-    if(tools.isNeedleSelected == true)
+    if(tools.isNeedleSelected == false)
     {
-        Glow();
-    } else if(tools.isNeedleSelected == false)
-    {
-        DisableGlow();
-    }
-    else
-    {
-        tools.isNeedleSelected = false;
+      DisableGlow();
     }
   }
 
   private void Glow()
   {
-    needleMat.EnableKeyword ("_EMISSION");
+    if(tools.nMaxGlow == 0)
+    {
+      glowClone = Instantiate(glowObj,transform.position,transform.rotation);
+      tools.nMaxGlow++;
+    }
   }
 
   private void DisableGlow()
   {
-    needleMat.DisableKeyword ("_EMISSION");
+   Destroy(glowClone);
   }
 
   private void RayClick()
@@ -70,11 +72,21 @@ public class NeedleClicked : MonoBehaviour
     {
         if(clicked.transform != null)
         {
-            PrintName(clicked.transform.gameObject);
-            NeedleActive();
+             PrintName(clicked.transform.gameObject);
+             tools.isNeedleSelected = true;
+             Glow();
+             OtherOff();
         }
-
     }
+  }
+
+  private void OtherOff()
+  {
+    tools.areScissorsSelected = false; 
+    tools.sMaxGlow = 0;
+
+    tools.isSyringeSelected = false;
+    tools.syMaxGlow = 0;
   }
 
 }

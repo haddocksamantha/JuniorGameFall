@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3268b320f84fbef498dbb25268f0e3b0, type: 3}
   m_Name: New Tools SO
   m_EditorClassIdentifier: 
-  areScissorsSelected: 1
+  areScissorsSelected: 0
   isNeedleSelected: 1
+  sMaxGlow: 0
+  nMaxGlow: 1

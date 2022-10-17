@@ -8,19 +8,18 @@ public class ScissorsClick : MonoBehaviour
     [SerializeField] private ToolsSO tools;
     [SerializeField] private LayerMask layerMask;
     
-    public Material scissorMat;
+    public GameObject glowObj;
+
+    private GameObject glowClone;
 
     private int numOfClicks;
 
-
-    private void Awake()
-    {
-        tools.areScissorsSelected = false;
-    }
+    //private float pinkIntensity = 5f;
 
     private void Start()
     {
-        numOfClicks = 0;
+      tools.sMaxGlow = 0;
+      tools.areScissorsSelected = false;
     }
 
  
@@ -31,40 +30,42 @@ public class ScissorsClick : MonoBehaviour
 
     private void Update()
     {
-        CheckForClick();
-          }
+      CheckForClick();
+      ScissorsActive();
+    }
   
     private void CheckForClick()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-         RayClick();
-        }
+      if(Input.GetMouseButtonDown(0))
+      {
+        //ScissorsActive();
+        RayClick();
+      }
     }
 
   private void ScissorsActive()
   {
-    tools.areScissorsSelected = true;
-    if(tools.areScissorsSelected == true)
+    if(tools.areScissorsSelected == false)
     {
-        Glow(); 
-    } else if(tools.areScissorsSelected == false)
-    {
-        DisableGlow();
-    }else
-    {
-        tools.areScissorsSelected = false;
+      //Debug.Log("scissors check run");
+      DisableGlow();
     }
   }
 
   private void Glow()
   {
-    scissorMat.EnableKeyword ("_EMISSION");
+    if(tools.sMaxGlow == 0)
+    {
+      glowClone = Instantiate(glowObj,transform.position,transform.rotation);
+      tools.sMaxGlow++;
+    }
   }
 
   private void DisableGlow()
   {
-    scissorMat.DisableKeyword ("_EMISSION");
+    
+    Destroy(glowClone);
+    //Debug.Log("SCISSORS DISABLED, " + tools.sMaxGlow + ", " + tools.areScissorsSelected);
   }
 
   private void RayClick()
@@ -76,12 +77,21 @@ public class ScissorsClick : MonoBehaviour
     {
         if(clicked.transform != null)
         {
-             numOfClicks++;
              PrintName(clicked.transform.gameObject);
-             ScissorsActive();
+             tools.areScissorsSelected = true;
+             Glow();
+             OtherOff();
         }
-
     }
+  }
+
+  private void OtherOff()
+  {
+    tools.isNeedleSelected = false; 
+    tools.nMaxGlow = 0;
+
+    tools.isSyringeSelected = false;
+    tools.syMaxGlow = 0;
   }
 
 }

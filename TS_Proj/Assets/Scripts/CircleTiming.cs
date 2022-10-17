@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleTiming : MonoBehaviour
+/* public class CircleTiming : MonoBehaviour
 {
     [SerializeField] private ToolsSO tools;
     
@@ -63,3 +63,4 @@ public class CircleTiming : MonoBehaviour
 
    
 }
+ */

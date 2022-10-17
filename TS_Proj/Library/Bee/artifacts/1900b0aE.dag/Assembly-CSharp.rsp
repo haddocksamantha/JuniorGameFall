@@ -350,6 +350,8 @@
 "Assets/Scripts/ScissorsClick.cs"
 "Assets/Scripts/ScissorsCut.cs"
 "Assets/Scripts/SOs/ToolsSO.cs"
+"Assets/Scripts/SyringeClick.cs"
+"Assets/Scripts/ToolChecker.cs"
 -langversion:9.0
 
 /deterministic
