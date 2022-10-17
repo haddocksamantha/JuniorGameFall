@@ -11,15 +11,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - scissorLayer
+  - needleLayer
+  - cutLayer
+  - sewLayer
+  - syringeLayer
+  - squeezeLayer
+  - bandaidLayer
+  - coverLayer
+  - heartLayer
   - 
   - 
   - 

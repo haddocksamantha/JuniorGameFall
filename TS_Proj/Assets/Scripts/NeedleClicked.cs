@@ -5,6 +5,7 @@ using UnityEngine;
 public class NeedleClicked : MonoBehaviour
 {
      [SerializeField] private ToolsSO tools;
+     [SerializeField] private LayerMask layerMask;
     
     public Material needleMat;
 
@@ -13,6 +14,7 @@ public class NeedleClicked : MonoBehaviour
         tools.isNeedleSelected = false;
     }
 
+   
  
     private void PrintName (GameObject needleObj)
     {
@@ -43,7 +45,8 @@ public class NeedleClicked : MonoBehaviour
     {
         DisableGlow();
     }
-    else{
+    else
+    {
         tools.isNeedleSelected = false;
     }
   }
@@ -63,7 +66,7 @@ public class NeedleClicked : MonoBehaviour
     RaycastHit clicked;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     
-    if (Physics.Raycast(ray, out clicked, 100.0f)) 
+    if (Physics.Raycast(ray, out clicked, 100.0f, layerMask)) 
     {
         if(clicked.transform != null)
         {

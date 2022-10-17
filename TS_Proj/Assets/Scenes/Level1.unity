@@ -165,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23825606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44592288, y: -0.04125239, z: -0.01872334}
+  m_LocalPosition: {x: -1.522, y: -0.04125239, z: -0.01872334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 161132126}
   - component: {fileID: 161132125}
   - component: {fileID: 161132123}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: needleGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 165555625}
   - component: {fileID: 165555627}
   - component: {fileID: 165555626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scissorGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 414397876}
   - component: {fileID: 414397880}
   - component: {fileID: 414397881}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CirclePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c05dd5b12015d4f96eaac7bd3ae1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tools: {fileID: 0}
+  tools: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
+  circleMat: {fileID: 2100000, guid: fdfb4d2534d71614cba5f8642fc0c7db, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +964,7 @@ GameObject:
   - component: {fileID: 8782961732066875347}
   - component: {fileID: 9198933852411467804}
   - component: {fileID: 1359343632474367627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: syringe_lp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1312,7 @@ GameObject:
   - component: {fileID: 1799444944919138834}
   - component: {fileID: 4921460973553812303}
   - component: {fileID: 4921460973553812302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Needle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,6 +1395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tools: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
   needleMat: {fileID: 2100000, guid: 27e47e226a294be49889ddad98257837, type: 2}
 --- !u!33 &5037773916461645156
 MeshFilter:
@@ -1533,7 +1537,7 @@ GameObject:
   - component: {fileID: 8069684469698997326}
   - component: {fileID: 8069684469698997327}
   - component: {fileID: 8069684469698997328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Scissor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1551,7 +1555,7 @@ GameObject:
   - component: {fileID: 7596028123388638970}
   - component: {fileID: 6778821599046674972}
   - component: {fileID: 4828158946763305350}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bandaid_lp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1646,6 +1650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tools: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   scissorMat: {fileID: 2100000, guid: 206f38b3da5f859449d90cc2b6392b81, type: 2}
 --- !u!65 &8069684469698997328
 BoxCollider:

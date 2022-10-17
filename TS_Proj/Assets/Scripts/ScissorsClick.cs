@@ -6,6 +6,7 @@ using UnityEngine;
 public class ScissorsClick : MonoBehaviour
 {
     [SerializeField] private ToolsSO tools;
+    [SerializeField] private LayerMask layerMask;
     
     public Material scissorMat;
 
@@ -31,7 +32,7 @@ public class ScissorsClick : MonoBehaviour
     private void Update()
     {
         CheckForClick();
-    }
+          }
   
     private void CheckForClick()
     {
@@ -44,10 +45,9 @@ public class ScissorsClick : MonoBehaviour
   private void ScissorsActive()
   {
     tools.areScissorsSelected = true;
-
     if(tools.areScissorsSelected == true)
     {
-        Glow();
+        Glow(); 
     } else if(tools.areScissorsSelected == false)
     {
         DisableGlow();
@@ -72,21 +72,16 @@ public class ScissorsClick : MonoBehaviour
     RaycastHit clicked;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     
-    if (Physics.Raycast(ray, out clicked, 100.0f)) 
+    if (Physics.Raycast(ray, out clicked, 100.0f, layerMask)) 
     {
         if(clicked.transform != null)
         {
-            if(numOfClicks < 1)
-            {
-                numOfClicks++;
-                PrintName(clicked.transform.gameObject);
-                ScissorsActive();
-            }
+             numOfClicks++;
+             PrintName(clicked.transform.gameObject);
+             ScissorsActive();
         }
 
     }
   }
-
-
 
 }
