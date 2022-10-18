@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CircleTiming : MonoBehaviour
 {
-/*     [SerializeField] private ToolsSO tools;
+    [SerializeField] private ToolsSO tools;
     [SerializeField] private Animator circleAnim;
     [SerializeField] private LayerMask layerMask;
 
@@ -28,9 +28,9 @@ public class CircleTiming : MonoBehaviour
 
     private void Update()
     {
+        CheckIfActive();
         if(Input.GetMouseButtonDown(0))
         {
-            CheckIfActive();
             RayClick();
         }
         SewingTime();
@@ -128,5 +128,5 @@ public class CircleTiming : MonoBehaviour
 
     
 
-    */
+   
 }

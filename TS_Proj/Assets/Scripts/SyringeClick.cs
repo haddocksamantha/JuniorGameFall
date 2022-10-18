@@ -55,12 +55,14 @@ public class SyringeClick : MonoBehaviour
     {
       glowClone = Instantiate(glowObj,transform.position,transform.rotation);
       tools.syMaxGlow++;
+      tools.injecting = true;
     }
   }
 
   private void DisableGlow()
   {
    Destroy(glowClone);
+   tools.injecting = false;
   }
 
   private void RayClick()

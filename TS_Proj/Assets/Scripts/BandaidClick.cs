@@ -55,12 +55,14 @@ public class BandaidClick : MonoBehaviour
     {
       glowClone = Instantiate(glowObj,transform.position,transform.rotation);
       tools.bMaxGlow++;
+      tools.bandaging = true;
     }
   }
 
   private void DisableGlow()
   {
    Destroy(glowClone);
+   tools.bandaging = false;
   }
 
   private void RayClick()

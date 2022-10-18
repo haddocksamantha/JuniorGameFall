@@ -55,12 +55,14 @@ public class NeedleClicked : MonoBehaviour
     {
       glowClone = Instantiate(glowObj,transform.position,transform.rotation);
       tools.nMaxGlow++;
+      tools.sewing = true;
     }
   }
 
   private void DisableGlow()
   {
    Destroy(glowClone);
+   tools.sewing = false;
   }
 
   private void RayClick()

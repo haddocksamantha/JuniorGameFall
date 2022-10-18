@@ -58,6 +58,7 @@ public class ScissorsClick : MonoBehaviour
     {
       glowClone = Instantiate(glowObj,transform.position,transform.rotation);
       tools.sMaxGlow++;
+      tools.cutting = true;
     }
   }
 
@@ -65,6 +66,7 @@ public class ScissorsClick : MonoBehaviour
   {
     
     Destroy(glowClone);
+    tools.cutting = false;
     //Debug.Log("SCISSORS DISABLED, " + tools.sMaxGlow + ", " + tools.areScissorsSelected);
   }
 

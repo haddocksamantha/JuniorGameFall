@@ -18,9 +18,11 @@ public class ToolsSO : ScriptableObject
     public int bMaxGlow;
 
     public bool cutting;
+    public bool[] cuttingSteps = {false, false, false};
     public bool cuttingComplete;
 
     public bool sewing;
+    public bool[] sewingSteps = {false, false, false};
     public bool sewingComplete;
 
     public bool injecting;
