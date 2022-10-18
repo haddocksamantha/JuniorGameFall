@@ -6,7 +6,7 @@ public class ScissorsCut : MonoBehaviour
 {
   [SerializeField] private Animator teddyAnim;
 
-  public Animation cutAnim1;
+  private Animation cutAnim1;
   private Animation cutAnim2;
   private Animation cutAnim3;
 
@@ -14,15 +14,10 @@ public class ScissorsCut : MonoBehaviour
 
   public GameObject scissors;
 
-  
-
-
-
   void Start()
   {
     scissors = gameObject.GetComponent<GameObject>();
     numOfClicks = 0;
-
   }
 
   private void Update()

@@ -16,4 +16,16 @@ public class ToolsSO : ScriptableObject
     public int nMaxGlow;
     public int syMaxGlow;
     public int bMaxGlow;
+
+    public bool cutting;
+    public bool cuttingComplete;
+
+    public bool sewing;
+    public bool sewingComplete;
+
+    public bool injecting;
+    public bool injectingComplete;
+
+    public bool bandaging;
+    public bool bandagingComplete;
 }
