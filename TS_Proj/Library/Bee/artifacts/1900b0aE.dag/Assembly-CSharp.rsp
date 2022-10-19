@@ -358,6 +358,7 @@
 "Assets/Scripts/ScissorsCut.cs"
 "Assets/Scripts/Sewing.cs"
 "Assets/Scripts/SOs/ToolsSO.cs"
+"Assets/Scripts/SOs/Vector3SO.cs"
 "Assets/Scripts/SyringeClick.cs"
 "Assets/Scripts/ToolChecker.cs"
 -langversion:9.0

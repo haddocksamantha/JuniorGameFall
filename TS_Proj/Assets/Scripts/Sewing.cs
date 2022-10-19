@@ -9,6 +9,8 @@ public class Sewing : MonoBehaviour
     [SerializeField] private Animator circleCtrl2;
     [SerializeField] private Animator circleCtrl3;
     [SerializeField] private Animator teddyAnim;
+    [SerializeField] private GameObject needleObj;
+    [SerializeField] private LayerMask layerMask;
 
     private bool[] clickable = {false, false, false};
     private Animation circleAnim1;
@@ -51,37 +53,77 @@ public class Sewing : MonoBehaviour
         if(tools.sewing == true)
         {
             circleGroup.SetActive(true);
-            Step1();
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                if(tools.sewingSteps[0] == false)
+                {
+                    circle1.SetActive(true);
+                    PlayCircle1();
+                }
+            }
         }
     }
 
-    private void Step1()
-    {
-        if(tools.sewingSteps[0] == false)
-        {
-            circle1.SetActive(true);
-            PlayCircle1();
-        }
-    }
-     
     private void PlayCircle1()
     {
+        Debug.Log("circle played");
         circleCtrl1.Play("Circle01", 0, 0.0f);
         StartCoroutine(Circle1Timer());
     }
 
+
     IEnumerator Circle1Timer()
     {
-        while(tools.sewingSteps[0] == false)
+        if(tools.sewingSteps[0] == false)
         {
-            float redTime = 0.5f;
-            float greenTime = 0.2f;
+            float redTime = 0.83333333333333f;
+            float greenTime = 0.3333333333333f;
 
                 TurnColor("Red");
             yield return new WaitForSeconds(redTime);
                 TurnColor("Green");
+                clickable[0] = true;
             yield return new WaitForSeconds(greenTime);
+                TurnColor("Red");
+            yield return new WaitForSeconds(redTime);
             StartCoroutine(Circle1Timer());
+
+        }
+    }
+
+    void OnMouseDown()
+    {
+        RayClick();
+    }
+
+    private void RayClick()
+    {
+        RaycastHit clicked;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    
+        if (Physics.Raycast(ray, out clicked, 100.0f, layerMask)) 
+        {
+            if(clicked.transform != null)
+            {
+                Clicking();
+            }
+        }
+    }
+
+    private void Clicking()
+    {
+        
+        if (clickable[0] == true)
+        {
+            tools.sewingSteps[0] = true;
+            Debug.Log("first stitch");
+            circle1.SetActive(false);
+        }else if(clickable[0] == false)
+        {
+            //subtract life
+            circle1.SetActive(false);
+            circle1.SetActive(true);
         }
     }
 

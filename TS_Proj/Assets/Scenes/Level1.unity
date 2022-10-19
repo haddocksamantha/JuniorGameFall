@@ -960,11 +960,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5692217928500235011, guid: d903a4174470c6543bbe3c6e6a50deb6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5692217928920275554, guid: d903a4174470c6543bbe3c6e6a50deb6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5692217929452305430, guid: d903a4174470c6543bbe3c6e6a50deb6, type: 3}
       propertyPath: m_IsActive
