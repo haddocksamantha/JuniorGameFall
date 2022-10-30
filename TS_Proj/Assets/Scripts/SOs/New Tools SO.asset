@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: New Tools SO
   m_EditorClassIdentifier: 
   areScissorsSelected: 0
-  isNeedleSelected: 1
+  isNeedleSelected: 0
+  isSyringeSelected: 1
+  isBandaidSelected: 0
   sMaxGlow: 0
-  nMaxGlow: 1
+  nMaxGlow: 0
+  syMaxGlow: 1
+  bMaxGlow: 0
+  cutting: 0
+  cuttingSteps: 000000
+  cuttingComplete: 0
+  sewing: 0
+  sewingSteps: 010101
+  sewingComplete: 1
+  injecting: 1
+  injectingComplete: 0
+  bandaging: 0
+  bandagingComplete: 0

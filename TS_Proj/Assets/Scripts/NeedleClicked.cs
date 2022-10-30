@@ -19,6 +19,7 @@ public class NeedleClicked : MonoBehaviour
     {
       tools.nMaxGlow = 0;
       tools.isNeedleSelected = false;
+      tools.sewing = false;
     }
 
  

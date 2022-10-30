@@ -131,7 +131,26 @@ public class Sewing : MonoBehaviour
                 clickable[1] = false;
             yield return new WaitForSeconds(redTime);
             StartCoroutine(Circle2Timer());
+        }
+    }
 
+       IEnumerator Circle3Timer()
+    {
+        if(tools.sewingSteps[2] == false)
+        {
+            float redTime = 0.5f;
+            float greenTime = 0.16666667f;
+
+                TurnColor("Red");
+                clickable[2] = false;
+            yield return new WaitForSeconds(redTime);
+                TurnColor("Green");
+                clickable[2] = true;
+            yield return new WaitForSeconds(greenTime);
+                TurnColor("Red");
+                clickable[2] = false;
+            yield return new WaitForSeconds(redTime);
+            StartCoroutine(Circle3Timer());
         }
     }
 
@@ -141,7 +160,6 @@ public class Sewing : MonoBehaviour
         {
             Clicking();
         }
-       
     }
 
     private void Clicking()
@@ -153,7 +171,42 @@ public class Sewing : MonoBehaviour
             Debug.Log("step 1 complete");
             circle1.SetActive(false);
             Step2();
+            clickable[0] = false;
+        } else if(clickable[1] == true)
+        {
+            tools.sewingSteps[1] = true;
+            Debug.Log("step 2 complete");
+            circle2.SetActive(false);
+            Step3();
+            clickable[1] = false;
+        } else if(clickable[2] == true)
+        {
+            tools.sewingSteps[2] = true;
+            Debug.Log("step 3 complete");
+            circle3.SetActive(false);
+            clickable[2] = false;
+            if(tools.sewingSteps[2] == true)
+            {
+                tools.sewingComplete = true;
+                //use this bool for next step
+            }
         }
+    }
+
+    void Step3()
+    {
+         if(tools.sewingSteps[1] == true)
+        {
+            if(clickable[2] == false)
+            {
+                circle3.SetActive(true);
+                circleCtrl3.Play("Circle03", 0, 0.0f);
+                played[2] = true;
+                StartCoroutine(Circle3Timer());
+            }
+        }
+
+
     }
 
     private void Step2()
