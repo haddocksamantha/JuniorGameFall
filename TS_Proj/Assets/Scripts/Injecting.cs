@@ -12,33 +12,46 @@ public class Injecting : MonoBehaviour
      private  GameObject circle;
      private bool circleActive;
      private bool oneCircle;
+     private bool timerRun;
 
      //public Vector3 circleTrans = new Vector3();
      private Vector3 num = new Vector3();
      public GameObject circlePrefab;
     
+ 
+   private void Start()
+   {
+     //circle = circlePrefab;
+     tools.injectingComplete = false;
+     oneCircle = false;
+     timerRun = false;
+   }
 
    private void Update()
    {
-        if(tools.injecting == true)
-        {
-            if(tools.sewingComplete == true)
-            {
-               StartCoroutine(CircleTimer());
-            }else if(tools.injecting == false)
-            {
-                //can't inject
-                NeedleFlash();
-            }  
-        }
-
-        if(Input.GetMouseButtonDown(0))
-        {
-          if(cSO.down == true)
-          {
-               Clicking();
+     if(tools.sewingComplete == true)
+     {
+          if(Input.GetMouseButtonDown(0))
+          { 
+               Timing();
+               if(cSO.down == true)
+               {
+                    Clicking();
+               }
           }
-        }
+     }    
+   }
+
+   private void Timing()
+   {
+     if(tools.injecting == true)
+     {
+          if(timerRun == false)
+               {
+                    StartCoroutine(CircleTimer());
+                    timerRun = true;
+               }
+     }
    }
 
    private void Clicking()
@@ -47,21 +60,20 @@ public class Injecting : MonoBehaviour
      {
           if(cSO.down == true )
           {
+               
                if(oneCircle == true)
-               //tools.injectingComplete = true;
+               {
+                     //tools.injectingComplete = true;
                Debug.Log("injected!");
                Destroy(circle);
+               tools.injectingComplete = true;
+                    
+               }
           }
-         
      }
    }
 
-   private void Start()
-   {
-     //circle = circlePrefab;
-     tools.injectingComplete = false;
-     oneCircle = false;
-   }
+
 
    private void NeedleFlash()
    {
@@ -77,9 +89,9 @@ public class Injecting : MonoBehaviour
                //num = vSO.circleLocations[Random.Range(0, vSO.circleLocations.Length)]; 
 
                // this fixes spawning location problem
-               int x = Random.Range(0,2);
-               int y = Random.Range(2,4);
-               int z = Random.Range(0,5);
+               float x = Random.Range(0.061f,-0.076f);
+               float y = 0.109f;
+               float z = Random.Range(0.1547f,0.0075f);
 
                num = new Vector3(x, y, z);
                //assigns value to new vector 3
@@ -94,7 +106,7 @@ public class Injecting : MonoBehaviour
      {
           if(tools.injectingComplete == false)
           {
-               Debug.Log("Injecting");
+               Debug.Log("Injecting (circle created)");
                float lifeTime = 3f;
                float spacing = 0.3f;
 
@@ -102,12 +114,13 @@ public class Injecting : MonoBehaviour
 
                     circleActive = true;
                yield return new WaitForSeconds(lifeTime);
+                    circleActive = false;
                     Destroy(circle);
                     oneCircle = false;
                     Debug.Log("circle destroyed");
-                    circleActive = false;
                yield return new WaitForSeconds(spacing);
                     StartCoroutine(CircleTimer());
+               timerRun = false;
           }
      }
 }

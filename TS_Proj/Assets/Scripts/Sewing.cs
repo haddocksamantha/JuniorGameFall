@@ -56,28 +56,34 @@ public class Sewing : MonoBehaviour
 
     private void Update()
     {
-        if(tools.sewing == true)
+        if(Input.GetMouseButtonDown(0))
         {
+            if(tools.sewing == true)
+            {
             circleGroup.SetActive(true);
+            //circle1.SetActive(true);
 
-            if(Input.GetMouseButtonDown(0))
-            {  
-                Click();
+                if(Input.GetMouseButtonDown(0))
+                {  
+                    Click();
 
-                if(clickable[0] == false)
-                { 
-                    if(tools.sewingSteps[0] == false)
-                    {
-                        circle1.SetActive(true);
-                        if(played[0] == false)
+                    if(clickable[0] == false)
+                    { 
+                        if(tools.sewingSteps[0] == false)
                         {
-                            PlayCircle1();
+                            circle1.SetActive(true);
+                            if(played[0] == false)
+                            {
+                                PlayCircle1();
+                            }
+                            
                         }
-                        
                     }
                 }
             }
+
         }
+        
     }
 
     private void PlayCircle1()

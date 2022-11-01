@@ -52,12 +52,16 @@ public class NeedleClicked : MonoBehaviour
 
   private void Glow()
   {
-    if(tools.nMaxGlow == 0)
+    if(tools.cuttingComplete == true)
     {
-      glowClone = Instantiate(glowObj,transform.position,transform.rotation);
-      tools.nMaxGlow++;
-      tools.sewing = true;
+        if(tools.nMaxGlow == 0)
+        {
+          glowClone = Instantiate(glowObj,transform.position,transform.rotation);
+          tools.nMaxGlow++;
+          tools.sewing = true;
+        }
     }
+  
   }
 
   private void DisableGlow()
@@ -77,6 +81,7 @@ public class NeedleClicked : MonoBehaviour
         {
              PrintName(clicked.transform.gameObject);
              tools.isNeedleSelected = true;
+
              Glow();
              OtherOff();
         }

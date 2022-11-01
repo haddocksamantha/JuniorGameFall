@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 6608612562341206534}
   - component: {fileID: 6608612562341206533}
   - component: {fileID: 6608612562341206531}
-  - component: {fileID: 6608612562341206529}
+  - component: {fileID: 8566884794992843122}
   m_Layer: 0
   m_Name: TeddyRig
   m_TagString: Untagged
@@ -971,7 +971,7 @@ MonoBehaviour:
   vSO: {fileID: 11400000, guid: c3595b9255a6ab64290af843e138669c, type: 2}
   cSO: {fileID: 11400000, guid: 0a57bc362466b2f478657783b6348114, type: 2}
   circlePrefab: {fileID: 6389899455205113517, guid: 147354e21ebb1f74299eadd59c62b3dd, type: 3}
---- !u!114 &6608612562341206529
+--- !u!114 &8566884794992843122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -980,11 +980,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6302765470395220550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51029f655b7b89e4a8e3167908dfd967, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b9a93c448474be4cb3ee8c79f463ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tools: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
-  teddyAnim: {fileID: 6608612562341206585}
 --- !u!1 &7685235065779019766
 GameObject:
   m_ObjectHideFlags: 0

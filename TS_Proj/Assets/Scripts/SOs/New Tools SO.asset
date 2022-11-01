@@ -24,7 +24,7 @@ MonoBehaviour:
   cuttingSteps: 000000
   cuttingComplete: 0
   sewing: 0
-  sewingSteps: 010101
+  sewingSteps: 000000
   sewingComplete: 1
   injecting: 1
   injectingComplete: 0

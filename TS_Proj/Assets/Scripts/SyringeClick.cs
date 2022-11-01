@@ -37,7 +37,11 @@ public class SyringeClick : MonoBehaviour
     {
       if(Input.GetMouseButtonDown(0))
       {
-        RayClick();
+        if(tools.sewingComplete == true)
+        {
+          RayClick();
+        }
+        
       }
     }
 

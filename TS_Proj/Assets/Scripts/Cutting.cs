@@ -25,7 +25,7 @@ public class Cutting : MonoBehaviour
     tools.cuttingSteps[0] = false;
     tools.cuttingSteps[1] = false;
     tools.cuttingSteps[2] = false;
-    tools.sewingComplete = false;
+    tools.cuttingComplete = false;
   }
 
   private void Update()
@@ -60,6 +60,7 @@ public class Cutting : MonoBehaviour
                 {
                     PlayAnim3();
                     tools.cuttingSteps[2] = true;
+                    tools.cuttingComplete = true;
                     Off();
                 }
                 break;
