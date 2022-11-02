@@ -21,6 +21,9 @@ public class ToolsSO : ScriptableObject
     public bool[] cuttingSteps = {false, false, false};
     public bool cuttingComplete;
 
+    public bool heartRemoved;
+    public bool heartAdded;
+
     public bool sewing;
     public bool[] sewingSteps = {false, false, false};
     public bool sewingComplete;
