@@ -457,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594746024}
   - component: {fileID: 594746025}
+  - component: {fileID: 594746026}
   m_Layer: 0
   m_Name: TriggerBox
   m_TagString: Untagged
@@ -492,6 +493,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.01, z: 0.26}
   m_Center: {x: 0, y: 0.005, z: 0}
+--- !u!114 &594746026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594746023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea2380bcd68c80479cbb4ebd086b51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tray: {fileID: 11400000, guid: 9bcafdfb517ddcc41afacf324da81990, type: 2}
 --- !u!1 &751420712
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +606,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalScale.x
@@ -608,15 +622,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0105
+      value: -0.010499995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.058
+      value: 0.058000006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0432
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -624,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -652,7 +666,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 530699d28c318734c901a0d6eae53265, type: 2}
     - target: {fileID: 919132149155446097, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_Name
-      value: BHEART_LP
+      value: BrokenHeart
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
+      propertyPath: m_TagString
+      value: brokenHeart
       objectReference: {fileID: 0}
     - target: {fileID: 2664544391212178181, guid: ac8cb9339fe94d745a104572a50428f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1340,7 +1358,7 @@ Transform:
   m_Children:
   - {fileID: 1102148905}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1652734018 stripped
 Transform:
@@ -1526,11 +1544,11 @@ GameObject:
   - component: {fileID: 5807766567286235952}
   m_Layer: 0
   m_Name: Heart
-  m_TagString: Untagged
+  m_TagString: newHeart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &2388290791953507869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1933,7 +1951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5718513683060722757}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.822, y: -0.193, z: -0.020367403}
+  m_LocalPosition: {x: 0.825, y: -0.193, z: -0.020367403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2096,9 +2114,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tools: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
+  tray: {fileID: 11400000, guid: 9bcafdfb517ddcc41afacf324da81990, type: 2}
   trayAnim: {fileID: 5718513683060722760}
   heart: {fileID: 1981649321635940791}
-  trayIn: {fileID: 0}
+  trayObj: {fileID: 5718513683060722757}
+  brokenHeart: {fileID: 2138278752}
 --- !u!95 &5718513683060722760
 Animator:
   serializedVersion: 4
@@ -2127,7 +2147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981649321635940791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.40683046, y: 0.029, z: -0.022632599}
+  m_LocalPosition: {x: 0.005, y: 0.029, z: 0.009}
   m_LocalScale: {x: 0.78, y: 0.78, z: 0.78}
   m_ConstrainProportionsScale: 0
   m_Children: []
