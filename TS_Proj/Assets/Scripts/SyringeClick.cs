@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SyringeClick : MonoBehaviour
 {
+  //Used by "Injecting.cs" Script
+
       [SerializeField] private ToolsSO tools;
     [SerializeField] private LayerMask layerMask;
     
@@ -24,7 +26,7 @@ public class SyringeClick : MonoBehaviour
  
     private void PrintName (GameObject syringeObj)
     {
-        print(syringeObj.name);
+      print(syringeObj.name);
     }
 
     private void Update()
@@ -37,11 +39,7 @@ public class SyringeClick : MonoBehaviour
     {
       if(Input.GetMouseButtonDown(0))
       {
-        if(tools.sewingComplete == true)
-        {
-          RayClick();
-        }
-        
+        RayClick();
       }
     }
 

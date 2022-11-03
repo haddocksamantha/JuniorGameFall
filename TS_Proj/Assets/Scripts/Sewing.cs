@@ -36,6 +36,8 @@ public class Sewing : MonoBehaviour
 
     private void Start()
     {
+        tools.sewingComplete = false; 
+        
         circle1.SetActive(false);
         circle2.SetActive(false);
         circle3.SetActive(false);

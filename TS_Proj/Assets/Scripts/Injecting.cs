@@ -29,7 +29,7 @@ public class Injecting : MonoBehaviour
 
    private void Update()
    {
-     if(tools.sewingComplete == true)
+     if(tools.injectingComplete == false)
      {
           if(Input.GetMouseButtonDown(0))
           { 
@@ -39,7 +39,7 @@ public class Injecting : MonoBehaviour
                     Clicking();
                }
           }
-     }    
+     }
    }
 
    private void Timing()
