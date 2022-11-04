@@ -1,30 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sewing : MonoBehaviour
 {
     [SerializeField] private ToolsSO tools;
     [SerializeField] private CircleSO circle;
+    [SerializeField] private LifeSO lSO;
+
     [SerializeField] private Animator circleCtrl1;
     [SerializeField] private Animator circleCtrl2;
     [SerializeField] private Animator circleCtrl3;
     [SerializeField] private Animator teddyAnim;
+
     [SerializeField] private GameObject needleObj;
+
     [SerializeField] private LayerMask layerMask;
+    
 
     private bool[] clickable = {false, false, false};
     private bool[] played = {false, false, false};
+
     private Animation circleAnim1;
     private Animation circleAnim2;
     private Animation circleAnim3;
+
     private Color circleColor;
+
     private float intensity;
 
     public GameObject circleGroup;
     public GameObject circle1;
     public GameObject circle2;
     public GameObject circle3;
+
     public Material circleMat;
 
 
@@ -32,6 +42,7 @@ public class Sewing : MonoBehaviour
     {
         circleGroup.SetActive(false);
         tools.sewing = false;
+        lSO.lives = 3;
     }
 
     private void Start()
@@ -62,8 +73,6 @@ public class Sewing : MonoBehaviour
         {
             circleGroup.SetActive(true);
             //circle1.SetActive(true);
-
-               
                   
                 Click();
 
@@ -162,6 +171,15 @@ public class Sewing : MonoBehaviour
         if(circle.down == true)
         {
             Clicking();
+        } 
+    }
+
+    private void Fail()
+    {
+        lSO.lives -= 1;
+        if(lSO.lives <= 0 )
+        {
+            SceneManager.LoadScene("FailScene");
         }
     }
 
@@ -195,6 +213,46 @@ public class Sewing : MonoBehaviour
             {
                 tools.sewingComplete = true;
                 //use this bool for next step
+            }
+            //fails:
+        }else if(clickable[0] == false)
+        {
+            if(tools.sewingSteps[0] == false)
+            {
+                if(tools.sewingSteps[1] == false)
+                {
+                    if(tools.sewingSteps[2] == false)
+                    {
+                        Fail();
+                    }
+                    
+                }
+             
+            }
+
+        }else if(clickable[1] == false)
+        {
+            if(tools.sewingSteps[0] == true)
+            {
+                if(tools.sewingSteps[1] == false)
+                {
+                    if(tools.sewingSteps[2] == false)
+                    {
+                        Fail();
+                    }
+                }
+            }
+        }else if(clickable[2] == false)
+        {
+            if(tools.sewingSteps[0] == true)
+            {
+                if(tools.sewingSteps[1] == true)
+                {
+                    if(tools.sewingSteps[2] == false)
+                    {
+                        Fail();
+                    }
+                }
             }
         }
     }

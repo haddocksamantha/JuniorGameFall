@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6159932239097401614}
   m_Layer: 10
   m_Name: syringeGlow
-  m_TagString: Untagged
+  m_TagString: syGlow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

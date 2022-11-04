@@ -365,6 +365,7 @@
 "Assets/Scripts/Sewing.cs"
 "Assets/Scripts/SewingAnimations.cs"
 "Assets/Scripts/SOs/CircleSO.cs"
+"Assets/Scripts/SOs/LifeSO.cs"
 "Assets/Scripts/SOs/ToolsSO.cs"
 "Assets/Scripts/SOs/TraySO.cs"
 "Assets/Scripts/SOs/Vector3SO.cs"

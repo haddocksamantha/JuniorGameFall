@@ -8,8 +8,11 @@ public class Injecting : MonoBehaviour
    [SerializeField] private ToolsSO tools;
    [SerializeField] private Vector3SO vSO;
    [SerializeField] private CircleSO cSO;
-
-     private  GameObject circle;
+   [SerializeField] private GameObject syRig;
+   [SerializeField] private GameObject syTool;
+   
+     private GameObject syGlow;
+     private GameObject circle;
      private bool circleActive;
      private bool oneCircle;
      private bool timerRun;
@@ -17,12 +20,18 @@ public class Injecting : MonoBehaviour
      //public Vector3 circleTrans = new Vector3();
      private Vector3 num = new Vector3();
      public GameObject circlePrefab;
+
+
+     private void Awake()
+     {
+          tools.injecting = false;
+          tools.injectingComplete = false;
+          syRig.SetActive(false);
+     }
     
  
    private void Start()
    {
-     //circle = circlePrefab;
-     tools.injectingComplete = false;
      oneCircle = false;
      timerRun = false;
    }
@@ -68,17 +77,30 @@ public class Injecting : MonoBehaviour
      {
           if(cSO.down == true )
           {
+               cSO.down = false;
                
                if(oneCircle == true)
                {
-                     //tools.injectingComplete = true;
-               Debug.Log("injected!");
+
                Destroy(circle);
-               tools.injectingComplete = true;
-                    
+
+               syGlow = GameObject.FindWithTag("syGlow");
+               StartCoroutine(SyringeAnim(1.5f));
+
+               tools.injectingComplete = true;  
                }
           }
      }
+   }
+
+   IEnumerator SyringeAnim(float seconds)
+   {
+     syRig.SetActive(true);
+     syTool.SetActive(false);
+     syGlow.SetActive(false);
+     yield return new WaitForSeconds(seconds);
+     syRig.SetActive(false);
+     syTool.SetActive(true);
    }
 
 
