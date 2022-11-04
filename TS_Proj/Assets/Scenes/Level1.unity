@@ -2203,9 +2203,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 3442036301501510419}
     m_Modifications:
     - target: {fileID: 1065467282, guid: 5dd4b9c33e647bc499488670a1595901, type: 3}
+      propertyPath: tools
+      value: 
+      objectReference: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
+    - target: {fileID: 1065467282, guid: 5dd4b9c33e647bc499488670a1595901, type: 3}
       propertyPath: syAnim
       value: 
       objectReference: {fileID: 1016968009}
+    - target: {fileID: 1065467282, guid: 5dd4b9c33e647bc499488670a1595901, type: 3}
+      propertyPath: greenGlow
+      value: 
+      objectReference: {fileID: 1016968007}
     - target: {fileID: 80096832439581396, guid: 5dd4b9c33e647bc499488670a1595901, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2465,7 +2473,7 @@ GameObject:
   - component: {fileID: 8350905323962588494}
   - component: {fileID: 8350905323962588495}
   m_Layer: 0
-  m_Name: tray_lp
+  m_Name: tray_tools
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

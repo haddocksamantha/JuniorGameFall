@@ -17,7 +17,7 @@ public class Cutting : MonoBehaviour
 
     private void Awake()
     {
-        scissorSlider.gameObject.SetActive(false);
+      scissorSlider.gameObject.SetActive(false);
     }
 
   private void Start()
@@ -91,7 +91,10 @@ public class Cutting : MonoBehaviour
   {
     tools.cutting = false;
     tools.areScissorsSelected = false;
-    tools.sewingComplete = true;
+    tools.injectingComplete = true;
+    tools.sewingComplete = false;
+    tools.bandagingComplete = false;
+    //tools.sewingComplete = true;
   }
 }
 

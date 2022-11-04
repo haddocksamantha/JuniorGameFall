@@ -25,7 +25,7 @@ public class NeedleClicked : MonoBehaviour
  
     private void PrintName (GameObject needleObj)
     {
-        print(needleObj.name);
+      print(needleObj.name);
     }
 
     private void Update()

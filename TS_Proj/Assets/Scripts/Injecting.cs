@@ -29,13 +29,21 @@ public class Injecting : MonoBehaviour
 
    private void Update()
    {
+     Injection();
+   }
+
+   private void Injection()
+   {
+
+     Timing();
+     
      if(tools.injectingComplete == false)
      {
           if(Input.GetMouseButtonDown(0))
           { 
-               Timing();
                if(cSO.down == true)
                {
+                    
                     Clicking();
                }
           }
@@ -47,10 +55,10 @@ public class Injecting : MonoBehaviour
      if(tools.injecting == true)
      {
           if(timerRun == false)
-               {
-                    StartCoroutine(CircleTimer());
-                    timerRun = true;
-               }
+          {   
+               StartCoroutine(CircleTimer());
+               timerRun = true;
+          }
      }
    }
 
@@ -81,6 +89,28 @@ public class Injecting : MonoBehaviour
         //flash needle
    }
 
+   IEnumerator CircleTimer()
+     {
+          if(tools.injectingComplete == false)
+          {
+               Debug.Log("Injecting (circle created)");
+               float lifeTime = 3f;
+               float spacing = 0.3f;
+
+                    CircleGen();
+
+                    circleActive = true;
+               yield return new WaitForSeconds(lifeTime);
+                    circleActive = false;
+                    Destroy(circle);
+                    oneCircle = false;
+                    Debug.Log("circle destroyed");
+               yield return new WaitForSeconds(spacing);
+                    StartCoroutine(CircleTimer());
+               timerRun = false;
+          }
+     }
+
    private void CircleGen()
      {
           if(oneCircle == false)
@@ -102,25 +132,5 @@ public class Injecting : MonoBehaviour
           }
      }
 
-     IEnumerator CircleTimer()
-     {
-          if(tools.injectingComplete == false)
-          {
-               Debug.Log("Injecting (circle created)");
-               float lifeTime = 3f;
-               float spacing = 0.3f;
-
-                    CircleGen();
-
-                    circleActive = true;
-               yield return new WaitForSeconds(lifeTime);
-                    circleActive = false;
-                    Destroy(circle);
-                    oneCircle = false;
-                    Debug.Log("circle destroyed");
-               yield return new WaitForSeconds(spacing);
-                    StartCoroutine(CircleTimer());
-               timerRun = false;
-          }
-     }
+     
 }

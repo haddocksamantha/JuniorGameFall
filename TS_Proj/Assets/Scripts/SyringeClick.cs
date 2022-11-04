@@ -15,7 +15,7 @@ public class SyringeClick : MonoBehaviour
 
     private int numOfClicks;
 
-    //private float pinkIntensity = 5f;
+   
 
     private void Start()
     {
@@ -55,9 +55,9 @@ public class SyringeClick : MonoBehaviour
   {
     if(tools.syMaxGlow == 0)
     {
+      tools.injecting = true;
       glowClone = Instantiate(glowObj,transform.position,transform.rotation);
       tools.syMaxGlow++;
-      tools.injecting = true;
     }
   }
 

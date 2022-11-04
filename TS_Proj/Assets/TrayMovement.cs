@@ -11,14 +11,27 @@ public class TrayMovement : MonoBehaviour
     [SerializeField] private GameObject trayObj;
     [SerializeField] private GameObject brokenHeart;
 
+    private bool trayPlayed = false;
+
 
     private void Awake()
     {
         heart.SetActive(false);
+
     }
 
     private void Update()
     {
+        if(tools.cuttingComplete == true)
+        {
+            if(trayPlayed == false)
+            {
+                PlayTrayIn();
+            }
+        }
+
+
+
         if(tray.brokenHeartAdded == true)
         {  
             //targetGameObject.transform.parent = desiredParentGameObject.transform;
@@ -36,14 +49,13 @@ public class TrayMovement : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        StartCoroutine(WaitOnStart(5.5f));
-    }
+ 
 
+ 
     private void PlayTrayIn()
     {
         trayAnim.Play("TrayIn", 0, 0.0f);
+        trayPlayed = true;
         //Debug.Log("tray in");
     }
 
@@ -60,11 +72,7 @@ public class TrayMovement : MonoBehaviour
     }
 
 
-    IEnumerator WaitOnStart(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        PlayTrayIn();
-    }
+ 
 
     IEnumerator ActivateHeart(float waitTime)
     {

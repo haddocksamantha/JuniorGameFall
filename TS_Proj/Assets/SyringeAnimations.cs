@@ -5,12 +5,13 @@ using UnityEngine;
 public class SyringeAnimations : MonoBehaviour
 {
     [SerializeField] private Animator syAnim;
+    [SerializeField] private ToolsSO tools;
+    [SerializeField] private GameObject greenGlow;
 
-  
 
     private void Start()
     {
-        StartCoroutine(PlayFlashAnim(0.5f));
+        StartCoroutine(PlayFlashAnim(0.7f));
     }
 
     IEnumerator PlayFlashAnim(float waitTime)
@@ -18,5 +19,16 @@ public class SyringeAnimations : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         syAnim.Play("SyFlash", 0, 0.0f);
     }
+
+    private void OnMouseDown()
+    {
+        if(tools.injecting == true)
+        {
+            greenGlow.SetActive(false);
+        }
+    }
+
+   
+
 
 }

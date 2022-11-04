@@ -27,7 +27,7 @@ public class Sewing : MonoBehaviour
     public GameObject circle3;
     public Material circleMat;
 
-   
+
     private void Awake()
     {
         circleGroup.SetActive(false);
@@ -58,34 +58,29 @@ public class Sewing : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(tools.sewing == true)
         {
-            if(tools.sewing == true)
-            {
             circleGroup.SetActive(true);
             //circle1.SetActive(true);
 
-                if(Input.GetMouseButtonDown(0))
-                {  
-                    Click();
+               
+                  
+                Click();
 
-                    if(clickable[0] == false)
-                    { 
-                        if(tools.sewingSteps[0] == false)
+                if(clickable[0] == false)
+                { 
+                    if(tools.sewingSteps[0] == false)
+                    {
+                         circle1.SetActive(true);
+                        if(played[0] == false)
                         {
-                            circle1.SetActive(true);
-                            if(played[0] == false)
-                            {
                                 PlayCircle1();
-                            }
-                            
                         }
+                            
                     }
                 }
+                
             }
-
-        }
-        
     }
 
     private void PlayCircle1()
@@ -178,6 +173,7 @@ public class Sewing : MonoBehaviour
             tools.sewingSteps[0] = true;
             Debug.Log("step 1 complete");
             circle1.SetActive(false);
+            Sew01();
             Step2();
             clickable[0] = false;
         } else if(clickable[1] == true)
@@ -185,6 +181,7 @@ public class Sewing : MonoBehaviour
             tools.sewingSteps[1] = true;
             Debug.Log("step 2 complete");
             circle2.SetActive(false);
+            Sew02();
             Step3();
             clickable[1] = false;
         } else if(clickable[2] == true)
@@ -192,6 +189,7 @@ public class Sewing : MonoBehaviour
             tools.sewingSteps[2] = true;
             Debug.Log("step 3 complete");
             circle3.SetActive(false);
+            Sew03();
             clickable[2] = false;
             if(tools.sewingSteps[2] == true)
             {
@@ -247,5 +245,22 @@ public class Sewing : MonoBehaviour
                 circleMat.SetColor("_EmissionColor", circleColor * intensity);
                 break;   
         }
+    }
+
+
+    private void Sew01()
+    {
+        teddyAnim.Play("Sew01", 0, 0.0f);
+    }
+
+    private void Sew02()
+    {
+        teddyAnim.Play("Sew02", 0, 0.0f);
+
+    }
+
+    private void Sew03()
+    {
+        teddyAnim.Play("Sew03", 0, 0.0f);
     }
 }

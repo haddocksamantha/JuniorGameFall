@@ -21,7 +21,6 @@ public class TrayTriggers : MonoBehaviour
             tray.newHeartRemoved = true;
         }
     }
-
   
     private void Start()
     {
