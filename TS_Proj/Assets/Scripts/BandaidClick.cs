@@ -74,10 +74,15 @@ public class BandaidClick : MonoBehaviour
     {
         if(clicked.transform != null)
         {
-             PrintName(clicked.transform.gameObject);
+          if(tools.sewingComplete == true)
+          {
+            PrintName(clicked.transform.gameObject);
              tools.isBandaidSelected = true;
              Glow();
              OtherOff();
+
+          }
+          
         }
     }
   }

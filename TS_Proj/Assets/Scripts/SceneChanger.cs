@@ -12,12 +12,12 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadStart()
     {
-        SceneManager.LoadScene("GameStart");
+        SceneManager.LoadScene("LevelStart");
     }
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void LoadLevels()
@@ -28,5 +28,10 @@ public class SceneChanger : MonoBehaviour
     public void LoadWin()
     {
         SceneManager.LoadScene("WinScene");
+    }
+
+    public void LoadLose()
+    {
+        SceneManager.LoadScene("FailScene");
     }
 }

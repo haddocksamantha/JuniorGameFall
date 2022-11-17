@@ -79,11 +79,16 @@ public class NeedleClicked : MonoBehaviour
     {
         if(clicked.transform != null)
         {
-             PrintName(clicked.transform.gameObject);
+          if(tools.heartAdded == true)
+          {
+                PrintName(clicked.transform.gameObject);
              tools.isNeedleSelected = true;
 
              Glow();
              OtherOff();
+
+          }
+         
         }
     }
   }

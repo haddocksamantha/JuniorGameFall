@@ -44,7 +44,7 @@ public class NeedleSew : MonoBehaviour
         PlayAnim3();
       }else
       {
-        Debug.Log("cuts complete");
+        //Debug.Log("cuts complete");
       }
          
     }
@@ -57,13 +57,13 @@ public class NeedleSew : MonoBehaviour
 
   private void PlayAnim2()
   {
-    Debug.Log("Sew 2");
+    //Debug.Log("Sew 2");
     /* teddyAnim.Play("Sew02", 0, 0.0f); */
   }
 
   private void PlayAnim3()
   {
-    Debug.Log("Sew 3");
+    //Debug.Log("Sew 3");
     /* teddyAnim.Play("Sew03", 0, 0.0f); */
   }
 

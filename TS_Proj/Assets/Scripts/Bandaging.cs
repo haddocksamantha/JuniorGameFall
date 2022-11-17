@@ -35,7 +35,7 @@ public class Bandaging : MonoBehaviour
             {
                 tools.bandagingComplete = true;
                 StartCoroutine(BandageTimer(1.5f));
-                Debug.Log("Surgery Complete");
+                //Debug.Log("Surgery Complete");
             }
 
         }
@@ -44,7 +44,9 @@ public class Bandaging : MonoBehaviour
 
     IEnumerator BandageTimer(float waitTime)
     {
+        yield return new WaitForSeconds(1f);
         bandage.SetActive(true);
+        clearBandage.SetActive(false)
         yield return new WaitForSeconds(waitTime);
         LoadWin();
     }

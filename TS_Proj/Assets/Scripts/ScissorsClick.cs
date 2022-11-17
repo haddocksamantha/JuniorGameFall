@@ -79,10 +79,14 @@ public class ScissorsClick : MonoBehaviour
     {
         if(clicked.transform != null)
         {
-             PrintName(clicked.transform.gameObject);
-             tools.areScissorsSelected = true;
-             Glow();
-             OtherOff();
+          if(tools.injectingComplete == true)
+          {
+            PrintName(clicked.transform.gameObject);
+            tools.areScissorsSelected = true;
+            Glow();
+            OtherOff();
+          }
+            
         }
     }
   }

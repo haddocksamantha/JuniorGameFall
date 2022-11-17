@@ -37,6 +37,8 @@ public class Sewing : MonoBehaviour
 
     public Material circleMat;
 
+    private bool failRun = false;
+
 
     private void Awake()
     {
@@ -176,7 +178,9 @@ public class Sewing : MonoBehaviour
 
     private void Fail()
     {
+        Debug.Log(lSO.lives);
         lSO.lives -= 1;
+        Debug.Log(lSO.lives);
         if(lSO.lives <= 0 )
         {
             SceneManager.LoadScene("FailScene");
@@ -185,6 +189,7 @@ public class Sewing : MonoBehaviour
 
     private void Clicking()
     {
+        failRun = true;
         //Debug.Log("clicking");
         if(clickable[0] == true)
         {
@@ -215,46 +220,14 @@ public class Sewing : MonoBehaviour
                 //use this bool for next step
             }
             //fails:
-        }else if(clickable[0] == false)
-        {
-            if(tools.sewingSteps[0] == false)
+        } else{
+            if(failRun == false)
             {
-                if(tools.sewingSteps[1] == false)
-                {
-                    if(tools.sewingSteps[2] == false)
-                    {
-                        Fail();
-                    }
-                    
-                }
-             
-            }
-
-        }else if(clickable[1] == false)
-        {
-            if(tools.sewingSteps[0] == true)
-            {
-                if(tools.sewingSteps[1] == false)
-                {
-                    if(tools.sewingSteps[2] == false)
-                    {
-                        Fail();
-                    }
-                }
-            }
-        }else if(clickable[2] == false)
-        {
-            if(tools.sewingSteps[0] == true)
-            {
-                if(tools.sewingSteps[1] == true)
-                {
-                    if(tools.sewingSteps[2] == false)
-                    {
-                        Fail();
-                    }
-                }
-            }
+                Fail();
+            }  
         }
+
+        failRun = false;
     }
 
     void Step3()

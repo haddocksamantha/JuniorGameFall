@@ -107,7 +107,7 @@ public class Injecting : MonoBehaviour
 
    private void NeedleFlash()
    {
-        Debug.Log("shouldn't inject");
+        //Debug.Log("shouldn't inject");
         //flash needle
    }
 
@@ -115,7 +115,7 @@ public class Injecting : MonoBehaviour
      {
           if(tools.injectingComplete == false)
           {
-               Debug.Log("Injecting (circle created)");
+               //Debug.Log("Injecting (circle created)");
                float lifeTime = 3f;
                float spacing = 0.3f;
 
@@ -126,7 +126,7 @@ public class Injecting : MonoBehaviour
                     circleActive = false;
                     Destroy(circle);
                     oneCircle = false;
-                    Debug.Log("circle destroyed");
+                    //Debug.Log("circle destroyed");
                yield return new WaitForSeconds(spacing);
                     StartCoroutine(CircleTimer());
                timerRun = false;
@@ -149,7 +149,7 @@ public class Injecting : MonoBehaviour
                //assigns value to new vector 3
                //obj, tranform, rotation
                circle = Instantiate(circlePrefab, num, Quaternion.identity);
-               Debug.Log(circle.transform.position);
+               //Debug.Log(circle.transform.position);
                oneCircle = true;
           }
      }

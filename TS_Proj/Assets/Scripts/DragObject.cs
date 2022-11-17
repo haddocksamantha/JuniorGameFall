@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DragObject : MonoBehaviour
 {
+    [SerializeField] private ToolsSO tools;
 
     private Vector3 mOffset;
 
@@ -17,14 +18,25 @@ public class DragObject : MonoBehaviour
 
     void OnMouseDown()
     {
-       
-
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        if(tools.cuttingComplete == true)
+        {
+            if(tools.sewingComplete == false)
+            {
+                mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 
         transform.position = new Vector3(transform.position.x, height, transform.position.z);
         // Store offset = gameobject world pos - mouse world pos
         mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
 
+
+            }
+               
+        }
+        
+        
+     
+        
+       
     }
 
 
@@ -43,15 +55,31 @@ public class DragObject : MonoBehaviour
 
     void OnMouseDrag()
     {
-        Rigidbody heartRigidbody = gameObject.GetComponent<Rigidbody> ();
+        if(tools.cuttingComplete == true)
+        {
+             Rigidbody heartRigidbody = gameObject.GetComponent<Rigidbody> ();
         heartRigidbody.isKinematic = true; 
         transform.position = GetMouseAsWorldPoint() + mOffset;
+
+        }
+        
+        
+       
+        
     }
 
     void OnMouseUp()
     {
-        Rigidbody heartRigidbody = gameObject.GetComponent<Rigidbody> ();
+        if(tools.cuttingComplete == true)
+        {
+             Rigidbody heartRigidbody = gameObject.GetComponent<Rigidbody> ();
         heartRigidbody.isKinematic = false;
+
+        }
+       
+        
+       
+        
     }
 
 }
