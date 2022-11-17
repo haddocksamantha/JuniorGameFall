@@ -17,11 +17,23 @@ public class AudioMaster : MonoBehaviour
     public AudioClip bandage;
     public AudioClip inject;
 
+    void Awake()
+    {
+        tools.injectingComplete = false;
+        tools.cuttingSteps[0] = false;
+        tools.cuttingSteps[1] = false;
+        tools.cuttingSteps[2] = false;
+        tools.sewingSteps[0] = false;
+        tools.sewingSteps[1] = false;
+        tools.sewingSteps[2] = false;
+        tools.bandagingComplete = false;
+    }
+
     void Update()
     {
         if(tools.injectingComplete == true)
         {
-            InjectSound();
+            source.PlayOneShot(inject);
             
         }else if(tools.cuttingSteps[0] == true)
         {
@@ -54,11 +66,7 @@ public class AudioMaster : MonoBehaviour
 
     }
 
-    public void InjectSound()
-    {
-        source.PlayOneShot(inject);
-
-    }
+   
 
     public void ButtonSound() 
     {

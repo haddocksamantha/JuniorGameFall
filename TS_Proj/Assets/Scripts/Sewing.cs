@@ -37,7 +37,9 @@ public class Sewing : MonoBehaviour
 
     public Material circleMat;
 
-    private bool failRun = false;
+    //bool wait;
+
+    //private bool failRun = false;
 
 
     private void Awake()
@@ -66,6 +68,8 @@ public class Sewing : MonoBehaviour
         played[0] = false;
         played[1] = false;
         played[2] = false;
+
+
 
     }
 
@@ -114,18 +118,42 @@ public class Sewing : MonoBehaviour
             float redTime = 0.83333333333333f;
             float greenTime = 0.3333333333333f;
 
+             
+
                 TurnColor("Red");
                 clickable[0] = false;
+               Fail1();
+               
             yield return new WaitForSeconds(redTime);
                 TurnColor("Green");
                 clickable[0] = true;
             yield return new WaitForSeconds(greenTime);
+            
                 TurnColor("Red");
                 clickable[0] = false;
+                Fail1();
+                
             yield return new WaitForSeconds(redTime);
             StartCoroutine(Circle1Timer());
+        }
+    }
+
+    void Fail1()
+    {
+        if(clickable[0] == false)
+        {
+            if(circle.down)
+            {
+                //Subtract();
+            }
 
         }
+        
+    }
+
+    void Subtract(){
+        lSO.lives -= 1;
+
     }
 
     IEnumerator Circle2Timer()
@@ -137,36 +165,74 @@ public class Sewing : MonoBehaviour
 
                 TurnColor("Red");
                 clickable[1] = false;
+                Fail2();
+             
             yield return new WaitForSeconds(redTime);
                 TurnColor("Green");
                 clickable[1] = true;
+                
             yield return new WaitForSeconds(greenTime);
+            
+            
                 TurnColor("Red");
                 clickable[1] = false;
+                Fail2();
+
+               
             yield return new WaitForSeconds(redTime);
             StartCoroutine(Circle2Timer());
         }
     }
 
-       IEnumerator Circle3Timer()
+    void Fail2()
+    {
+        if(clickable[1] == false)
+        {
+            if(circle.down)
+            {
+                //Subtract();
+
+            }
+        }
+    }
+
+    IEnumerator Circle3Timer()
     {
         if(tools.sewingSteps[2] == false)
         {
             float redTime = 0.5f;
             float greenTime = 0.16666667f;
 
+                
                 TurnColor("Red");
                 clickable[2] = false;
+                Fail3();
+              
             yield return new WaitForSeconds(redTime);
                 TurnColor("Green");
                 clickable[2] = true;
             yield return new WaitForSeconds(greenTime);
+           
                 TurnColor("Red");
                 clickable[2] = false;
+                Fail3();
+               
             yield return new WaitForSeconds(redTime);
             StartCoroutine(Circle3Timer());
         }
     }
+
+    void Fail3()
+    {
+        if(clickable[2] == false)
+        {
+            if(circle.down)
+            {
+                //Subtract();
+            }
+        }
+    }
+
 
     private void Click()
     {
@@ -176,20 +242,12 @@ public class Sewing : MonoBehaviour
         } 
     }
 
-    private void Fail()
-    {
-        //Debug.Log(lSO.lives);
-        lSO.lives -= 1;
-        //Debug.Log(lSO.lives);
-        if(lSO.lives <= 0 )
-        {
-            SceneManager.LoadScene("FailScene");
-        }
-    }
+ 
+
 
     private void Clicking()
     {
-        failRun = true;
+        //failRun = true;
         //Debug.Log("clicking");
         if(clickable[0] == true)
         {
@@ -220,14 +278,9 @@ public class Sewing : MonoBehaviour
                 //use this bool for next step
             }
             //fails:
-        } else{
-            if(failRun == false)
-            {
-                Fail();
-            }  
-        }
+        } 
 
-        failRun = false;
+        //failRun = false;
     }
 
     void Step3()
