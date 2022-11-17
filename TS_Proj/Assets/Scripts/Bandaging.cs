@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Bandaging : MonoBehaviour
 {
-    [SerializeField] private Animator teddyAnim;
+    //[SerializeField] private Animator teddyAnim;
     [SerializeField] private ToolsSO tools;
+    [SerializeField] private BandaidSO bandageSO;
     [SerializeField] private CircleSO cSO;
     [SerializeField] private GameObject clearBandage;
     [SerializeField] private GameObject bandageTool;
@@ -31,22 +32,20 @@ public class Bandaging : MonoBehaviour
         if(tools.bandaging == true)
         {
             clearBandage.SetActive(true);
-            if(cSO.down == true)
-            {
-                tools.bandagingComplete = true;
-                StartCoroutine(BandageTimer(1.5f));
-                //Debug.Log("Surgery Complete");
-            }
-
         }
         
+        if(bandageSO.clicked == true)
+        {
+            StartCoroutine(BandageTimer(1.5f));
+        }
     }
 
     IEnumerator BandageTimer(float waitTime)
     {
-        yield return new WaitForSeconds(1f);
+        clearBandage.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         bandage.SetActive(true);
-        clearBandage.SetActive(false)
+        //clearBandage.SetActive(false);
         yield return new WaitForSeconds(waitTime);
         LoadWin();
     }

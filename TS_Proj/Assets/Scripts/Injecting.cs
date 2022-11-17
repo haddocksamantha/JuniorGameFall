@@ -116,7 +116,7 @@ public class Injecting : MonoBehaviour
           if(tools.injectingComplete == false)
           {
                //Debug.Log("Injecting (circle created)");
-               float lifeTime = 3f;
+               float lifeTime = 1.5f;
                float spacing = 0.3f;
 
                     CircleGen();

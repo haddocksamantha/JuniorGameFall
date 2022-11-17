@@ -68,7 +68,7 @@ public class TrayMovement : MonoBehaviour
     private void PlayTrayOut()
     {
        trayAnim.Play("TrayOut", 0, 0.0f);
-       Debug.Log("tray out");
+       //Debug.Log("tray out");
     }
 
 

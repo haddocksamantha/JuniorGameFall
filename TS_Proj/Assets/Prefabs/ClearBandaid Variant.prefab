@@ -15,21 +15,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearBandaid
       objectReference: {fileID: 0}
+    - target: {fileID: 3319932178978380413, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3346190711101343217, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3346190711101343217, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0060000233
+      value: 0.07601412
       objectReference: {fileID: 0}
     - target: {fileID: 3346190711101343217, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08060553
+      value: 0.027069028
       objectReference: {fileID: 0}
     - target: {fileID: 3346190711101343217, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.034
+      value: -0.029105477
       objectReference: {fileID: 0}
     - target: {fileID: 3346190711101343217, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62,3 +66,21 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3297597811634959294, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
+--- !u!1 &6986770745071549842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3319932178978380413, guid: 48f24077ebe37dd47b3ed8e5b1eb5283, type: 3}
+  m_PrefabInstance: {fileID: 5685577117194102767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6844075552971229341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986770745071549842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0efd79bfb8454940b9c50fd802f489f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bandage: {fileID: 11400000, guid: 0ba986f51da892f4a81647d779b554d6, type: 2}

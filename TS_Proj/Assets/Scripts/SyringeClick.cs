@@ -7,6 +7,7 @@ public class SyringeClick : MonoBehaviour
   //Used by "Injecting.cs" Script
 
       [SerializeField] private ToolsSO tools;
+      [SerializeField] private LifeSO lSO;
     [SerializeField] private LayerMask layerMask;
     
     public GameObject glowObj;
@@ -80,6 +81,9 @@ public class SyringeClick : MonoBehaviour
              tools.isSyringeSelected = true;
              Glow();
              OtherOff();
+        }else
+        {
+          lSO.lives -= 1;
         }
     }
   }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ScissorsClick : MonoBehaviour
 {
     [SerializeField] private ToolsSO tools;
+    [SerializeField] private LifeSO lSO;
     [SerializeField] private LayerMask layerMask;
     
     public GameObject glowObj;
@@ -85,8 +86,10 @@ public class ScissorsClick : MonoBehaviour
             tools.areScissorsSelected = true;
             Glow();
             OtherOff();
+          }else
+          {
+            lSO.lives -= 1;
           }
-            
         }
     }
   }

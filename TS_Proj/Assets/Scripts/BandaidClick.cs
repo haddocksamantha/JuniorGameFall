@@ -5,6 +5,7 @@ using UnityEngine;
 public class BandaidClick : MonoBehaviour
 {
     [SerializeField] private ToolsSO tools;
+    [SerializeField] private LifeSO lSO;
     [SerializeField] private LayerMask layerMask;
     
     public GameObject glowObj;
@@ -78,9 +79,13 @@ public class BandaidClick : MonoBehaviour
           {
             PrintName(clicked.transform.gameObject);
              tools.isBandaidSelected = true;
+             tools.isNeedleSelected = false;
              Glow();
              OtherOff();
 
+          }else
+          {
+            lSO.lives -= 1;
           }
           
         }

@@ -178,9 +178,9 @@ public class Sewing : MonoBehaviour
 
     private void Fail()
     {
-        Debug.Log(lSO.lives);
+        //Debug.Log(lSO.lives);
         lSO.lives -= 1;
-        Debug.Log(lSO.lives);
+        //Debug.Log(lSO.lives);
         if(lSO.lives <= 0 )
         {
             SceneManager.LoadScene("FailScene");
@@ -194,7 +194,7 @@ public class Sewing : MonoBehaviour
         if(clickable[0] == true)
         {
             tools.sewingSteps[0] = true;
-            Debug.Log("step 1 complete");
+            //Debug.Log("step 1 complete");
             circle1.SetActive(false);
             Sew01();
             Step2();
@@ -202,7 +202,7 @@ public class Sewing : MonoBehaviour
         } else if(clickable[1] == true)
         {
             tools.sewingSteps[1] = true;
-            Debug.Log("step 2 complete");
+            //Debug.Log("step 2 complete");
             circle2.SetActive(false);
             Sew02();
             Step3();
@@ -210,7 +210,7 @@ public class Sewing : MonoBehaviour
         } else if(clickable[2] == true)
         {
             tools.sewingSteps[2] = true;
-            Debug.Log("step 3 complete");
+            //Debug.Log("step 3 complete");
             circle3.SetActive(false);
             Sew03();
             clickable[2] = false;

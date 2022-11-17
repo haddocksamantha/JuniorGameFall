@@ -45,10 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0670e8969e0a2141a36237fd80fc357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tools: {fileID: 11400000, guid: 5851968a54d3d484a9e284edd61d82ce, type: 2}
   source: {fileID: 1947289683337133526}
   win: {fileID: 8300000, guid: d3104d8747b9c6e42878aaa84b48e091, type: 3}
   button: {fileID: 8300000, guid: 56c5760102a6caa4eb2ab9a3574220d7, type: 3}
   sew: {fileID: 8300000, guid: c503cda5bef8d094aa1522b8d3477f27, type: 3}
+  yay: {fileID: 8300000, guid: d3104d8747b9c6e42878aaa84b48e091, type: 3}
+  cut: {fileID: 8300000, guid: d62d07a120ba33c4b90b13ff520d7fd1, type: 3}
+  bandage: {fileID: 8300000, guid: 0eb22a1e2a2d00e459c7b3cba2dc87fd, type: 3}
+  inject: {fileID: 8300000, guid: 0eb22a1e2a2d00e459c7b3cba2dc87fd, type: 3}
 --- !u!82 &1947289683337133526
 AudioSource:
   m_ObjectHideFlags: 0

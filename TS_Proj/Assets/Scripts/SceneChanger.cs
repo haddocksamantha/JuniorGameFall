@@ -7,7 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level1"); 
     }
 
     public void LoadStart()
@@ -34,4 +34,6 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("FailScene");
     }
+
+   
 }
